@@ -4,7 +4,11 @@
 <section class="conteudo">
     <section class="imagem">
         <div class="imagem__conteudo">
-            <img class="imagem__imagem" src="{% static '/assets/imagens/galeria/'%}{{fotografia.foto}}"> <!-- adicionando variavel do DB que está sendo enviado via request pelo view-->
+            {% if fotografia.foto == "" or fotografia.foto == null %}
+            <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto">
+            {% else %}
+            <img class="imagem__imagem" src="{{ fotografia.foto.url }}"> <!-- adicionando variavel do DB que está sendo enviado via request pelo view-->
+            {% endif %}
             <div class="imagem__info">
                 <div class="imagem__texto">
                     <p class="imagem__titulo">{{ fotografia.nome }}</p>

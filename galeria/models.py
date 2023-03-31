@@ -18,6 +18,6 @@ class Fotografia(models.Model):
     data_pub = models.DateTimeField(default=datetime.now, blank=False)
 
     def __str__(self):
-        return f"Fotografia [nome={self.nome}]"
+        return self.nome
     
 

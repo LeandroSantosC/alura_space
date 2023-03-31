@@ -23,7 +23,11 @@
                 {% for fotografia in cards %}
                 <li class="card">
                     <a href="{% url 'imagem' fotografia.id %}"> <!--passando o id que recebeu como request do view, para url devolver para o view a pagina que ele tem q buscar -->
-                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/'%}{{ fotografia.foto }}" alt="foto">
+                    {% if fotografia.foto == "" or fotografia.foto == null %}
+                        <img class="card__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto">
+                    {% else %}
+                        <img class="card__imagem" src="{{ fotografia.foto.url }}" alt="foto">
+                    {% endif %}
                     </a>
                     <span class="card__tag">Estrelas</span>
                     <div class="card__info">
