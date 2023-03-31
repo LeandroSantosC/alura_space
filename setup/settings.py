@@ -127,6 +127,12 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+# Media
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #adicionando ao path o diretorio root da midia
+
+MEDIA_URL = "/media/" #caminho da pasta onde vou pegar a midia
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
